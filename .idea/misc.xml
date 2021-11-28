@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/cradview.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/traepizium.xml" value="0.3537037037037037" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/card.xml" value="0.3197463768115942" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/cardviewtraep.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/addsometasktext"
+       android:text="Add Some Tasks!"
+       android:textColor="@color/black"/>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:weightSum="10"
+       android:layout_marginVertical="10dp">
+
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recycler_view"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_margin="10dp"
+          android:layout_weight="10"
+          android:background="@color/white"
+          android:textAlignment="center"
+          tools:listitem="@layout/cardviewtraep"/>
+      <ImageView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:src="@drawable/up_arrow" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:text="click here if completed*"
+          android:textSize="9.5dp"/>
+
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center"
+          android:text="Completed!"
+          android:textStyle="bold"
+          android:id="@+id/completedbutton"
+          android:textAllCaps="false"
+          />
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:id="@+id/imageview"
+          android:src="@mipmap/ic_launcher"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         android:orientation="horizontal"
+          android:layout_marginTop="20sp"
+          android:weightSum="8">
+         <com.google.android.material.textfield.TextInputLayout
+             android:layout_width="0dp"
+             android:layout_weight="6"
+             android:id="@+id/nexttaskinput"
+             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+             android:layout_height="wrap_content"
+             app:boxCornerRadiusBottomEnd="20sp"
+             app:boxCornerRadiusBottomStart="20sp"
+             >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+               android:hint="Enter the next Task!"
+                android:padding="10dp"
+                android:layout_weight="6"
+                android:lines="2"
+                android:inputType="text"
+                android:layout_marginHorizontal="5dp"/>
+
+         </com.google.android.material.textfield.TextInputLayout>
+         <Button
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:text="Save"
+             android:id="@+id/savebutton"
+             android:layout_marginHorizontal="5dp"
+             android:layout_weight="2"
+             android:textAllCaps="false"/>
+      </LinearLayout>
+
+   </LinearLayout>
+
+</RelativeLayout>
