@@ -5,30 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:background="@color/blue900"
     >
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:id="@+id/addsometasktext"
-       android:text="Add Some Tasks!"
-       android:textColor="@color/black"/>
+      android:text="add some tasks"
+       android:id="@+id/addsometask"
+
+       android:layout_centerHorizontal="true"
+       />
+
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
+       android:layout_marginVertical="10dp"
        android:orientation="vertical"
-       android:weightSum="10"
-       android:layout_marginVertical="10dp">
+       android:weightSum="10">
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/recycler_view"
           android:layout_width="match_parent"
-          android:layout_height="0dp"
+          android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:layout_weight="10"
-          android:background="@color/white"
+          android:padding="5dp"
+          android:background="@drawable/outline"
           android:textAlignment="center"
-          tools:listitem="@layout/cardviewtraep"/>
+          tools:listitem="@layout/cardviewtraep" />
+
       <ImageView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -40,36 +46,40 @@
           android:layout_height="wrap_content"
           android:layout_gravity="center"
           android:text="click here if completed*"
-          android:textSize="9.5dp"/>
+          android:textSize="9.5dp" />
 
-      <Button
+      <android.widget.Button
+          android:id="@+id/completedbutton"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_gravity="center"
+          android:background="@drawable/carbg"
+          android:padding="10dp"
           android:text="Completed!"
-          android:textStyle="bold"
-          android:id="@+id/completedbutton"
+          android:textColor="@color/white"
           android:textAllCaps="false"
-          />
+          android:textStyle="bold" />
+
       <ImageView
+          android:id="@+id/imageview"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
-          android:id="@+id/imageview"
-          android:src="@mipmap/ic_launcher"/>
+          android:src="@mipmap/ic_launcher" />
 
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-         android:orientation="horizontal"
           android:layout_marginTop="20sp"
+          android:orientation="horizontal"
           android:weightSum="8">
+
          <com.google.android.material.textfield.TextInputLayout
-             android:layout_width="0dp"
-             android:layout_weight="6"
              android:id="@+id/nexttaskinput"
              style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+             android:layout_width="0dp"
              android:layout_height="wrap_content"
+             android:layout_weight="6"
              app:boxCornerRadiusBottomEnd="20sp"
              app:boxCornerRadiusBottomStart="20sp"
              >
@@ -78,22 +88,26 @@
                 android:layout_width="match_parent"
 
                 android:layout_height="wrap_content"
-               android:hint="Enter the next Task!"
-                android:padding="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="6"
-                android:lines="2"
+                android:hint="Enter the next Task!"
                 android:inputType="text"
-                android:layout_marginHorizontal="5dp"/>
+                android:lines="2"
+                android:padding="10dp" />
 
          </com.google.android.material.textfield.TextInputLayout>
-         <Button
+
+         <android.widget.Button
+             android:id="@+id/savebutton"
              android:layout_width="0dp"
              android:layout_height="wrap_content"
-             android:text="Save"
-             android:id="@+id/savebutton"
              android:layout_marginHorizontal="5dp"
              android:layout_weight="2"
-             android:textAllCaps="false"/>
+             android:textColor="@color/white"
+             android:background="@drawable/carbg"
+             android:backgroundTint="@null"
+             android:text="Save"
+             android:textAllCaps="false" />
       </LinearLayout>
 
    </LinearLayout>

@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/carbg.xml" value="0.27314814814814814" />
         <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/cradview.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/outline.xml" value="0.35052083333333334" />
         <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/drawable/traepizium.xml" value="0.3537037037037037" />
-        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/card.xml" value="0.3197463768115942" />
-        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/cardviewtraep.xml" value="0.5" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/cardviewtraep.xml" value="0.33" />
+        <entry key="..\:/Users/ritik/AndroidStudioProjects/TaskTodo/app/src/main/res/layout/fragment_blank.xml" value="0.15993945509586277" />
       </map>
     </option>
   </component>

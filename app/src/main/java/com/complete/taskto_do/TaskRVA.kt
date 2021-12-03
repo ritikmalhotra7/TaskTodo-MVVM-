@@ -3,6 +3,7 @@ package com.complete.taskto_do
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.size
 import androidx.recyclerview.widget.RecyclerView
 import com.complete.taskto_do.databinding.CardviewtraepBinding
 
@@ -17,6 +18,7 @@ class TaskRVA(var list :List<TaskTable>, private val ctx : Context) : RecyclerVi
 
     override fun onBindViewHolder(holder: TaskVH, position: Int) {
         holder.binding.task.text = list.get(position).taskName
+        holder.binding.number.text = (position+1).toString()
     }
 
     override fun getItemCount(): Int {

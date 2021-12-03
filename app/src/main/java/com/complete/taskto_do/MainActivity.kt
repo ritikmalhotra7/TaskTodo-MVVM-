@@ -7,10 +7,13 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.complete.taskto_do.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private var _binding : ActivityMainBinding? = null
@@ -29,7 +32,27 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,true)
         binding.recyclerView.hasFixedSize()
         binding.recyclerView.adapter = adapter
+        //for drag and sort
+        /*var items = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder
+            ): Boolean {
+                val position = viewHolder.adapterPosition
+                val targetp = target.adapterPosition
+                Collections.swap(adapter.list,position,targetp)
+                adapter.notifyItemMoved(position,targetp)
+                return true
+            }
 
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                taskVM.delete(adapter.list.get(viewHolder.adapterPosition))
+
+            }
+
+        }
+
+        val item = ItemTouchHelper(items)
+        item.attachToRecyclerView(binding.recyclerView).run { adapter.notifyDataSetChanged() }
+        */
         val repoObject = TaskRepo(TaskDatabase(this))
         val factoryObject = TaskVMFactory(repoObject)
         taskVM = ViewModelProvider(this,factoryObject).get(TaskVM::class.java)
