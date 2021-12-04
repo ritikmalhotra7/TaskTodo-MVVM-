@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         val item = ItemTouchHelper(items)
         item.attachToRecyclerView(binding.recyclerView).run { adapter.notifyDataSetChanged() }
-        */
+*/
         val repoObject = TaskRepo(TaskDatabase(this))
         val factoryObject = TaskVMFactory(repoObject)
         taskVM = ViewModelProvider(this,factoryObject).get(TaskVM::class.java)
