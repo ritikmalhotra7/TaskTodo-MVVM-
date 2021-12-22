@@ -55,6 +55,9 @@ class MainActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 taskVM.delete(adapter.list.get(viewHolder.adapterPosition))
+                for(i in viewHolder.adapterPosition..adapter.list.size-1){
+                    taskVM.update(TaskTable(adapter.list.get(i).taskName,(adapter.list.get(i).taskNumber.toInt()-1).toString()))
+                }
                 Toast.makeText(this@MainActivity,"Deleted",Toast.LENGTH_SHORT).show()
 
             }
@@ -103,5 +106,12 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    /*<svg xmlns="http://www.w3.org/2000/svg" width="404" height="108" viewBox="0 0 404 108">
+  <g id="Rectangle_1" data-name="Rectangle 1" fill="#9100ff" stroke="#fff" stroke-width="3">
+    <rect width="404" height="108" rx="20" stroke="none"/>
+    <rect x="1.5" y="1.5" width="401" height="105" rx="18.5" fill="none"/>
+  </g>
+</svg>
+*/
 
 }
