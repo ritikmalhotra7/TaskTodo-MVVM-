@@ -5,14 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/blue900"
     >
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
       android:text="add some tasks"
        android:id="@+id/addsometask"
-
        android:layout_centerHorizontal="true"
        />
 
@@ -20,57 +18,52 @@
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_marginVertical="10dp"
+       android:layout_marginTop="10dp"
        android:orientation="vertical"
-       android:weightSum="10">
+       android:weightSum="9">
 
       <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/recycler_view"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
+          android:layout_height="0dp"
           android:layout_margin="10dp"
-          android:layout_weight="10"
-          android:padding="5dp"
+          android:layout_weight="7"
           android:background="@drawable/outline"
+          android:padding="5dp"
           android:textAlignment="center"
-          tools:listitem="@layout/cardviewtraep" />
+          tools:listitem="@layout/forimpcardview" />
 
       <ImageView
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_height="0dp"
           android:layout_gravity="center"
+          android:layout_weight="0.3"
           android:src="@drawable/up_arrow" />
 
       <TextView
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_height="0dp"
           android:layout_gravity="center"
+          android:layout_weight="0.2"
           android:text="click here if completed*"
           android:textSize="9.5dp" />
 
-      <android.widget.Button
+      <Button
           android:id="@+id/completedbutton"
           android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_height="0dp"
           android:layout_gravity="center"
-          android:background="@drawable/carbg"
+          android:layout_weight="0.8"
           android:padding="10dp"
           android:text="Completed!"
-          android:textColor="@color/white"
           android:textAllCaps="false"
           android:textStyle="bold" />
 
-      <ImageView
-          android:id="@+id/imageview"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="10dp"
-          android:src="@mipmap/ic_launcher" />
 
       <LinearLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20sp"
+          android:layout_height="0dp"
+          android:layout_weight="1"
           android:orientation="horizontal"
           android:weightSum="8">
 
@@ -81,12 +74,10 @@
              android:layout_height="wrap_content"
              android:layout_weight="6"
              app:boxCornerRadiusBottomEnd="20sp"
-             app:boxCornerRadiusBottomStart="20sp"
-             >
+             app:boxCornerRadiusBottomStart="20sp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:layout_weight="6"
@@ -97,13 +88,12 @@
 
          </com.google.android.material.textfield.TextInputLayout>
 
-         <android.widget.Button
+         <Button
              android:id="@+id/savebutton"
              android:layout_width="0dp"
              android:layout_height="wrap_content"
              android:layout_marginHorizontal="5dp"
              android:layout_weight="2"
-             android:textColor="@color/white"
              android:background="@drawable/carbg"
              android:backgroundTint="@null"
              android:text="Save"

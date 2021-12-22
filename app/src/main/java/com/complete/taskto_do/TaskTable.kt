@@ -7,7 +7,9 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "tasks")
 data class TaskTable (
     @ColumnInfo(name = "taskName")
-    var taskName : String
+    var taskName : String,
+    @ColumnInfo(name = "taskNumber")
+    var taskNumber : String
 ){
     @PrimaryKey(autoGenerate = true)
     var itemKey : Int? = null

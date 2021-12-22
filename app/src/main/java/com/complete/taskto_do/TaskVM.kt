@@ -12,5 +12,9 @@ class TaskVM (val taskRepo :TaskRepo): ViewModel() {
         taskRepo.delete(task)
     }
     fun getAll() = taskRepo.getall()
+    fun update(task: TaskTable) = GlobalScope.launch {
+        taskRepo.update(task)
+    }
+    fun minus1() = taskRepo.minus1()
 
 }

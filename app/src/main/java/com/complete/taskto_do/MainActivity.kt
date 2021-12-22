@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.text.Editable
 import android.util.Log
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.Toast
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var list : List<TaskTable>
     private lateinit var adapter :TaskRVA
     private lateinit var taskVM:TaskVM
+    private var isOn : Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
@@ -32,46 +35,49 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,true)
         binding.recyclerView.hasFixedSize()
         binding.recyclerView.adapter = adapter
+        if(list.isNotEmpty()){
+           binding.addsometask.visibility = View.INVISIBLE
+        }
         //for drag and sort
-        /*var items = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+        var items = object : ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP,ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder
             ): Boolean {
                 val position = viewHolder.adapterPosition
                 val targetp = target.adapterPosition
-                Collections.swap(adapter.list,position,targetp)
-                adapter.notifyItemMoved(position,targetp)
+
+                taskVM.update(TaskTable(adapter.list.get(position).taskName,adapter.list.get(targetp).taskNumber))
+                taskVM.update(TaskTable(adapter.list.get(targetp).taskName,adapter.list.get(position).taskNumber))
+
+
                 return true
+
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 taskVM.delete(adapter.list.get(viewHolder.adapterPosition))
+                Toast.makeText(this@MainActivity,"Deleted",Toast.LENGTH_SHORT).show()
 
             }
 
         }
 
         val item = ItemTouchHelper(items)
-        item.attachToRecyclerView(binding.recyclerView).run { adapter.notifyDataSetChanged() }
-*/
+        item.attachToRecyclerView(binding.recyclerView)
+
         val repoObject = TaskRepo(TaskDatabase(this))
         val factoryObject = TaskVMFactory(repoObject)
+
         taskVM = ViewModelProvider(this,factoryObject).get(TaskVM::class.java)
         taskVM.getAll().observe(this,{
-            adapter.list = it
-            for(i in adapter.list.indices){
-                Log.d("taget",adapter.list.get(i).taskName)
-            }
-
-            adapter.notifyDataSetChanged()
-
+            adapter.setData(it)
         })
 
 
         binding.savebutton.setOnClickListener {
             val inputTask = binding.nexttaskinput.editText?.text
             if(inputTask!!.isNotEmpty()){
-                taskVM.insert(TaskTable(inputTask.toString()))
-                adapter.notifyDataSetChanged()
+                taskVM.insert(TaskTable(inputTask.toString(),(adapter.list.size+1).toString()))
+                adapter.setData(adapter.list)
                 binding.nexttaskinput.editText?.setText("")
             }else{
                 Snackbar.make(binding.completedbutton,"You have to enter something",Snackbar.LENGTH_SHORT).show()
@@ -81,7 +87,10 @@ class MainActivity : AppCompatActivity() {
         binding.completedbutton.setOnClickListener {
             if(adapter.list.size!=0){
                 taskVM.delete(adapter.list.get(0))
-                adapter.notifyDataSetChanged()
+                for(i in adapter.list){
+                    taskVM.update(TaskTable(i.taskName,(i.taskNumber.toInt()-1).toString()))
+                }
+                adapter.setData(list)
                 Toast.makeText(this,"Good!",Toast.LENGTH_SHORT).show()
             }
             else{
